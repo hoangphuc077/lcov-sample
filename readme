@@ -1,0 +1,9 @@
+gcc --coverage -fprofile-arcs -ftest-coverage test.c -o test
+
+./test
+
+lcov --capture --directory . --output-file coverage.info
+
+genhtml coverage.info --output-directory out
+
+open ./out/index.html
